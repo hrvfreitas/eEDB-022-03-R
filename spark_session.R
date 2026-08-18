@@ -10,7 +10,7 @@ get_spark_session <- function(app_name = "R_Spark_Pipeline") {
   config$`sparklyr.jars.packages` <- POSTGRES_JDBC_PACKAGE
   config$`spark.sql.session.timeZone` <- "UTC"
   
-  spark_master <- Sys.getenv("SPARK_MASTER", "local[*]")
+  spark_master <- Sys.getenv("SPARK_MASTER", "local[4]")
   
   sc <- spark_connect(master = spark_master, config = config)
   return(sc)
